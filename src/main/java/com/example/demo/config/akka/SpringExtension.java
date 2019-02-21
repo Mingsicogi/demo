@@ -6,6 +6,11 @@ import akka.actor.Extension;
 import akka.actor.Props;
 import org.springframework.context.ApplicationContext;
 
+/**
+ *
+ *
+ * @author 전민석
+ */
 public class SpringExtension extends AbstractExtensionId<SpringExtension.SpringExt>
 {
     public static final SpringExtension SPRING_EXTENSION_PROVIDER = new SpringExtension();

@@ -4,13 +4,13 @@ import akka.actor.ActorRef;
 import akka.actor.ActorSystem;
 import akka.routing.RoundRobinPool;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
 
 import static com.example.demo.config.akka.SpringExtension.SPRING_EXTENSION_PROVIDER;
 
-@Component
+@Service
 public class ActorManagement {
 
     @Autowired

@@ -1,7 +1,9 @@
 package com.example.demo.app.common.controller;
 
+import com.example.demo.app.common.actor.ActorManagement;
 import com.example.demo.app.common.vo.HealthCheckVO;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -15,6 +17,9 @@ import javax.servlet.http.HttpServletRequest;
 @RequestMapping("/healthCheck")
 @Slf4j
 public class HealthCheck {
+
+    @Autowired
+    private ActorManagement actorManagement;
 
     final private String password = "mingsicogi";
 
@@ -46,6 +51,14 @@ public class HealthCheck {
         model.addAttribute("result", vo);
 
         return "mtrPage";
+    }
+
+    @RequestMapping("/akka")
+    @ResponseBody
+    public String startAkkaService(String message){
+        actorManagement.start(message);
+
+        return "ok";
     }
 }
 

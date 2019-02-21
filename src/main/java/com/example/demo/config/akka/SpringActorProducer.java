@@ -14,6 +14,11 @@ public class SpringActorProducer implements IndirectActorProducer {
         this.beanActorName = beanActorName;
     }
 
+    /**
+     * spring application context에서 actor instance를 찾아주는 메소드
+     *
+     * @return
+     */
     @Override
     public Actor produce() {
         return (Actor) applicationContext.getBean(beanActorName);
