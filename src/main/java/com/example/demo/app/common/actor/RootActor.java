@@ -23,17 +23,12 @@ public class RootActor extends UntypedAbstractActor {
 
 	@PostConstruct
 	public void init(){
-		printActor = context().actorOf(new RoundRobinPool(50).props(SPRING_EXTENSION_PROVIDER.get(actorSystem).props("PrintActor")));
+		printActor = context().actorOf(new RoundRobinPool(10000).props(SPRING_EXTENSION_PROVIDER.get(actorSystem).props("PrintActor")));
 	}
 
 	@Override public void onReceive(Object message) throws Throwable {
 		if(message instanceof String){
-			long start = System.currentTimeMillis();
-			for(int i = 0; i < 100_000; i++){
-				printActor.tell(message, ActorRef.noSender());
-			}
-			System.out.println("Finish!!!");
-			System.out.println("It tooks " + (start - System.currentTimeMillis())/1000 + "seconds");
+            printActor.tell(message, ActorRef.noSender());
 		} else {
 			unhandled(message);
 		}

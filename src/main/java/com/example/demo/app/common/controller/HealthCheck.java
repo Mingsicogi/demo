@@ -8,7 +8,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
@@ -17,6 +16,8 @@ import javax.servlet.http.HttpServletRequest;
 @RequestMapping("/healthCheck")
 @Slf4j
 public class HealthCheck {
+
+    private static int count = 0;
 
     @Autowired
     private ActorManagement actorManagement;
@@ -56,6 +57,7 @@ public class HealthCheck {
     @RequestMapping("/akka")
     @ResponseBody
     public String startAkkaService(String message){
+        log.info("" + count++);
         actorManagement.start(message);
 
         return "ok";

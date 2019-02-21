@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 public class PrintActor extends UntypedAbstractActor {
 	@Override public void onReceive(Object message) throws Throwable {
 		if(message instanceof String){
-				System.out.println(message);
+			System.out.println(message);
 		} else {
 			unhandled(message);
 		}
