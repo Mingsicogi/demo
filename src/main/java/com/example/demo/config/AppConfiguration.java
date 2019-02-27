@@ -16,7 +16,7 @@ import static com.example.demo.config.akka.SpringExtension.SPRING_EXTENSION_PROV
  */
 @Configuration
 @ComponentScan("com.example.demo.app.common.actor.*")
-public class appConfiguration {
+public class AppConfiguration {
 
     @Autowired
     private ApplicationContext applicationContext;

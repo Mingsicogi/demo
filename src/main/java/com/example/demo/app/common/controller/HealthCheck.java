@@ -57,10 +57,22 @@ public class HealthCheck {
     @RequestMapping("/akka")
     @ResponseBody
     public String startAkkaService(String message){
-        log.info("" + count++);
-        actorManagement.start(message);
+        //checkCount();
+        //actorManagement.start(message);
 
         return "ok";
+    }
+
+    @RequestMapping("/error")
+    @ResponseBody
+    public String occurError(String message){
+        int a = 1/0;
+
+        return "error";
+    }
+
+    synchronized private void checkCount(){
+        log.info("" + count++);
     }
 }
 
