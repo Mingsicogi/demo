@@ -1,0 +1,11 @@
+server:
+    port: 18080
+
+spring:
+    thymeleaf:
+        check-template-location: false
+
+management:
+    context-path: /adminManage
+    security:
+        enabled: false
